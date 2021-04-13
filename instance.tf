@@ -14,9 +14,9 @@ resource "null_resource" "provisioner" {
       password    = "DevOps321" //dont hardcode like this
     }
     inline        =[
-      "yum install make -y"
-      "git clone https://github.com/SrimaanPenugonda/roboshop.git"
-      "cd roboshop"
+      "yum install make -y",
+      "git clone https://github.com/SrimaanPenugonda/roboshop.git",
+      "cd roboshop",
       "make ${var.COMPONENT}"
     ]
   }
