@@ -7,7 +7,7 @@ resource "aws_instance" "ami_instance" {
 }
 
 resource "null_resource" "provisioner" {
-  provisioner "remote-exec" {
+  provisioner "remote-exec" { // connect and execute commands in remote instance
     connection {
       host        = aws_instance.ami_instance.public_ip
       user        = "root"
