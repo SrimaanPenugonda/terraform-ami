@@ -8,4 +8,4 @@ apply: ## Terraform Apply for DEV env
 	@terraform apply -auto-approve -no-color
 
 destroy: ## Terraform Destroy for DEV env
-	@terraform destroy  -auto-approve -no-color
+	@terraform destroy -auto-approve -no-color
