@@ -5,3 +5,7 @@ terraform {
   region           = "us-east-1"
   dynamodb_table   = "terraform" //dynamodb table name
 }
+
+provider "aws" {
+  region = "us-east-1"
+}
