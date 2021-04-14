@@ -4,7 +4,7 @@ data "aws_ami" "ami" {
 #  filter {
 #    name   = "image-id"
 #    values = ["ami-079a3f3cf00741286"]
-#  }  ami id will chanhe all time so filtering on name
+#  }  ami id will change all time so filtering on name
   filter {
     name   = "name"
     values = ["Centos-7-DevOps-Practice"]
