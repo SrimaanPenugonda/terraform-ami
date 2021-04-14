@@ -17,3 +17,5 @@ it created seperatly to modify as required
  resource "aws_security_group" "allow_tls"
  ingress{} inbound
  egress{} outbound
+ attach the security grp to above instance
+ vpc_security_group_ids = [aws_security_group.allow_ssh.id]
