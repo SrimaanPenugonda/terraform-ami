@@ -6,6 +6,7 @@ init: ## Terraform init for DEV env
 
 apply: ## Terraform Apply for DEV env
 	@terraform apply -auto-approve -no-color
-
+plan:
+	@terraform plan -lock=false
 destroy: ## Terraform Destroy for DEV env
 	@terraform destroy -auto-approve -no-color
