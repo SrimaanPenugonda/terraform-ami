@@ -4,7 +4,6 @@ help:           ## Show this help.
 init: ## Terraform init for DEV env
 	@terraform init -no-color -backend-config=key=${TF_VAR_COMPONENT}/ami/terraform-tfstate -backend-config=bucket="srimaan-terraform-state-files"
 	 -backend-config=region=us-east-1 -backend-config=dynamodb_table=terraform
-
 apply: ## Terraform Apply for DEV env
 	@terraform apply -auto-approve -no-color
 plan:
