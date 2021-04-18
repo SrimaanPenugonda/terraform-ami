@@ -21,7 +21,7 @@ it created seperatly to modify as required
  vpc_security_group_ids = [aws_security_group.allow_ssh.id]
 
  now create AMI with above instance
- resource "aws_ami_from_instance" "example"
+ resource "aws_ami_from_instance" "ami"
 
  -- Now if we give destroy.. AMI also get deleted
     lifecycle helps here to avoid delete
@@ -31,4 +31,10 @@ it created seperatly to modify as required
   ami from state file
     terraform destroy
     - this will destroy the instance,security grp but wont destroy the AMI
+
+Every Component will use the AMI .. so to avoid the lock over statefile
+create diff state files for components
+key = ami/${component}/terraform.tfstate
+
+now we can create parallel AMI's for all components.
 
