@@ -10,3 +10,12 @@ data "aws_ami" "ami" {
     values = ["Centos-7-DevOps-Practice"]
   }
 }
+
+#get the credentials from AWS secret manager
+data "aws_secretsmanager_secret" "creds" {
+  name     = "roboshop-${var.ENV}"
+}
+
+data "aws_secretsmanager_secret_version" "creds"{
+ secret_id = data.aws_secretsmanager_secret_version.creds
+}
