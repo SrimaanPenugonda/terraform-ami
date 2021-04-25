@@ -47,7 +47,7 @@ resource "null_resource" "provisioner" {
    #   "cd roboshop",
    #   "make ${var.COMPONENT}"
    # now using ansible
-      "yum install ansible -y"
+      "sudo yum install ansible -y"
       "ansible-pull -i localhost, -U https://github.com/SrimaanPenugonda/Ansible.git roboshop-project/roboshop.yml -e ENV=${var.ENV} -e component=${var.COMPONENT} -t ${var.COMPONENT} "
     ]
   }
