@@ -17,5 +17,5 @@ data "aws_secretsmanager_secret" "creds" {
 }
 
 data "aws_secretsmanager_secret_version" "creds"{
- secret_id = data.aws_secretsmanager_secret_version.creds
+ secret_id = data.aws_secretsmanager_secret.creds.id
 }
