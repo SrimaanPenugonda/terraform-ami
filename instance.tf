@@ -37,15 +37,18 @@ resource "null_resource" "provisioner" {
       host        = aws_instance.ami_instance.public_ip
    #  user        = "root"
    #  password    = "DevOps321" //don't hardcode like this
-   #  using secret manager
+   #  Now using secret manager
       user        = jsondecode(data.aws_secretsmanager_secret_version.creds.secret_string)["SSH_USER"]
       password    = jsondecode(data.aws_secretsmanager_secret_version.creds.secret_string)["SSH_PASS"]
     }
     inline        =[
-      "yum install make -y",
-      "git clone https://github.com/SrimaanPenugonda/roboshop.git",
-      "cd roboshop",
-      "make ${var.COMPONENT}"
+   #   "yum install make -y",
+   #   "git clone https://github.com/SrimaanPenugonda/roboshop.git",
+   #   "cd roboshop",
+   #   "make ${var.COMPONENT}"
+   # now using ansible
+      "yum install ansible -y"
+      "ansible-pull -i localhost, -U https://github.com/SrimaanPenugonda/Ansible.git roboshop-project/roboshop.yml -e ENV=${var.ENV} -e component=${var.COMPONENT} -t ${var.COMPONENT} "
     ]
   }
 }
