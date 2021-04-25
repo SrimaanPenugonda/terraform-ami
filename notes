@@ -2,7 +2,6 @@ create an instance using ami
 this is to make an ami with inline commands executed so that it can be used for
 roboshop project
 
-this is for frontend -
 create an instance - resource "aws_instance" "ami_instance"
 resource "null_resource" "provisioner"  - provisioner for the above instance
 it created seperatly to modify as required
@@ -28,11 +27,11 @@ it created seperatly to modify as required
     create_before_destroy
     prevent_destroy
   terraform state rm aws_ami_from_instance.ami - to skip the AMI destroy, remove the
-  ami from state file
+  ami from state file while destroying
     terraform destroy
     - this will destroy the instance,security grp but wont destroy the AMI
 
-Every Component will use the AMI .. so to avoid the lock over statefile
+Every Component will use the AMI .. so to avoid the lock over state file
 create diff state files for components
 key = ami/${component}/terraform.tfstate
 
