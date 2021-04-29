@@ -48,7 +48,7 @@ resource "null_resource" "provisioner" {
    #   "make ${var.COMPONENT}"
    # now using ansible
       "sudo yum install ansible -y",
-      "ansible-pull -i localhost, -U https://github.com/SrimaanPenugonda/Ansible.git roboshop-project/roboshop.yml -e ENV=${var.ENV} -e component=${var.COMPONENT} -e APP_ARTIFACT_VERSION=${var.TF_ARTIFACT_VERSION} -t ${var.COMPONENT} "
+      "ansible-pull -i localhost, -U https://github.com/SrimaanPenugonda/Ansible.git roboshop-project/roboshop.yml -e ENV=${var.ENV} -e component=${var.COMPONENT} -e APP_ARTIFACT_VERSION=${var.TF_ARTIFACT_VERSION} -e PAT=${jsondecode(data.aws_secretsmanager_secret_version.creds.secret_string)["PAT"]} -t ${var.COMPONENT} "
     ]
   }
 }
