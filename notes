@@ -37,3 +37,5 @@ key = ami/${component}/terraform.tfstate
 
 now we can create parallel AMI's for all components.
 
+S38:
+
