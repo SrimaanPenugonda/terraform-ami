@@ -23,9 +23,6 @@ it created seperatly to modify as required
  resource "aws_ami_from_instance" "ami"
 
  -- Now if we give destroy.. AMI also get deleted
-    lifecycle helps here to avoid delete
-    create_before_destroy
-    prevent_destroy
   terraform state rm aws_ami_from_instance.ami - to skip the AMI destroy, remove the
   ami from state file while destroying
     terraform destroy
